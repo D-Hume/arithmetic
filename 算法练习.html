@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
-    
+    var arr = [5, 8, 3, 6, 9]
+    // sort()
+    arr = arr.sort(function (a, b) {
+        return a - b
+    })
+    console.log(arr);
+    // 冒泡
+    for (var i = 0; i < arr.length; i++) {
+        // 控制比较的趟数
+        for (var j = 0; j < arr.length - i; j++) {
+            // 控制每行比较的次数
+            if (arr[j] < arr[j - 1]) {
+                // 如果前一个数大于后一个数，让两者进行交换位置
+                var temp;
+                // 要经常考虑使用中间变量
+                temp = arr[j - 1]
+                arr[j - 1] = arr[j]
+                arr[j] = temp
+            }
+        }
+    }
+    console.log(arr);
+    //.str=”abcdefgaaass”找字符中出现最多的
+    var str = "abcdefgaaass";
+    var obj = {};
+    for (var i = 0; i < str.length; i++) {
+        var key = str.charAt(i)
+        // console.log(key);
+        if (obj[key] == undefined) {
+            obj[key] = 1;
+        }
+        else {
+            obj[key]++
+        }
+        // console.log(obj[key], key);
+    }
+    var max_m = "a";
+    var max_k = 0
+    for (var key in obj) {
+        if (obj[key] > max_k) {
+            max_k = obj[key]
+            max_m = key
+        }
+    }
+    // console.log(max_m, max_k);
+    console.log("出现次数最多的是：" + max_m, "，出现了：" + max_k + "次");
+    // 编程实现，往数组里插入一个元素
+
+    function Cha(i, j, a) {
+        var arr = [1, 3, 5, 2, 6, 9, 7, 8]
+        var arr_1 = arr.splice(i, j, a)
+        // console.log(arr_1);
+        // console.log(arr);
+        return arr
+        // 可以在函数里边打印arr
+        // console.log(arr);
+    }
+    Cha(1, 0, 699)
+    // splice改变原数组，在选定参考的下标的前边插入
+    console.log(Cha(1, 0, 699));
+
 </script>
+
 </html>
